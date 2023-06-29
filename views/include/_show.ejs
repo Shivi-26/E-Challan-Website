@@ -1,0 +1,19 @@
+<% for(var i=0;i<users.length;i++) {%>
+
+<tr>
+    <td><%-i+1%></td>
+    <td><%-users[i].name%></td>
+    <td><%-users[i].email%></td>
+    <td><%-users[i].contact%></td>
+    <td><%-users[i].licenseno%></td>
+    <td><%-users[i].vehicleno%></td>
+    <td>
+      <a href="/update-user?id=<%-users[i]._id%>" class="update pencil">
+        <span clsss="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+      </a>
+      <a class="delete pencil" data-id="<%-users[i]._id%>">
+        <span clsss="text-gradient"><i class="fas fa-times"></i></span>
+      </a>
+      </td>
+  </tr>
+<%}%>

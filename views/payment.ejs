@@ -1,0 +1,150 @@
+<!--include header-->
+<%- include('include/_header')%>
+  <!--/include header-->
+    <style>
+        .reg-form {
+            background: rgb(121, 186, 211);
+            box-sizing: border-box;
+            box-shadow: 1px 2px 6px snow;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            
+            padding: 12px;
+            max-width: 400px;
+        }
+
+        .helper-text {
+            font-size: 12px;
+            margin-bottom: 4px;
+            text-align: right;
+        }
+
+        
+        .form-label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .form-dropdown,
+        .Textbox,
+        .Amountbox {
+            width: 100%;
+            height: 30px;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .form-button {
+            background-color: black;
+            border: none;
+            border-radius: 0;
+            color: white;
+            display: inline-block;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        #site-main {
+            font-family: 'Barlow', sans-serif;
+            margin-top: 4px;
+        }
+
+        #site-main.container.box-nav {
+            font-size: 6em;
+            padding: 2em, 0;
+            
+        }
+        
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav">
+                    <a href="/pay-table"><i class="fas fa-angle-double-left"></i>Payment details</a>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form action="/api/challans" method="POST" class="reg-form" id="payment">
+                        <p class="helper-text">* denotes a required field</p>
+                        <div class="form-group">
+                            <label for="optionId">Select Option*</label>
+                            <div>
+                                <input type="radio" id="challan" name="optionId" value="Challan">
+                                <label for="challan">Challan no.</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="driving" name="optionId" value="Driving">
+                                <label for="driving">Driving License</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="vehicle" name="optionId" value="Vehicle no.">
+                                <label for="vehicle">Vehicle no.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="ptext">Enter*</label>
+                            <input type="text" id="ptext" name="optionText" class="Textbox"
+                                placeholder="Enter the above selected option">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Challan*</label>
+                            <select class="form-dropdown" id="pay" onchange="fine();" name="pay">
+                                <option value="helmet">No-Helmet</option>
+                                <option value="Traffic Rules">Break-Traffic Rules</option>
+                                <option value="Three-seater">Three-seater</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Payment Mode*</label>
+                            <select class="form-dropdown">
+                                <option value="UPI"> UPI </option>
+                                <option value="Net Banking"> Net Banking </option>
+                                <option value="Debit Card"> Debit Card </option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Challan"> Challan </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Amount</label>
+                            <input type="text" id="amount" class="Amountbox" name="amount" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="form-button">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var amt;
+        function fine() {
+            var category = document.getElementById('pay').value;
+            if (category == "helmet") {
+                amt = 700;
+            }
+            else if (category == "Traffic Rules") {
+                amt = 500;
+            }
+            else if (category == "Three-seater") {
+                amt = 300;
+            }
+            document.getElementById('amount').value = amt;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
+        integrity="sha384-ZyKfXJmcOScBq9q6u3/sD3qQ4ujarar3UiqwwyoNZkUq2TSyB4i4zkfJnKZio4yC"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!--include header-->
+<%- include('include/_header')%>
+  <!--/include header-->
+
+  <!--Main Site-->
+
+  <main id="site-main">
+    <div class="container">
+      <div class="box-nav d-flex-justify-between">
+        <div class="filter">
+          <a href="/admin_home"><i class="fas fa-angle-double-left"></i>All users</a>
+        </div>
+      </div>
+      <div class="form-title text-center">
+        <h2 class="text-dark">Update User</h2>
+        <span class="text-light">Use the below form to Update an account</span>
+      </div>
+
+      <!--update user form-->
+      <!--form handling-->
+      <form  method="POST" id="update_user">
+        <div class="new_user">
+          <div class="form-group">
+            <label for="name" class="text-light">Name</label>
+            <input type="hidden" name="id" value="<%-user._id%>">
+            <input type="text" name="name" value="<%-user.name%>" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="email" class="text-light">E-mail</label>
+            <input type="text" name="email" value="<%-user.email%>">
+          </div>
+          <div class="form-group">
+            <label for="contact" class="text-light">Contact:</label>
+            <input type="text" name="contact" value="<%-user.contact%>">
+          </div>
+          <div class="form-group">
+            <label for="licenseno" class="text-light">License no</label>
+            <input type="text" name="licenseno" value="<%-user.licenseno%>">
+          </div>
+          <div class="form-group">
+            <label for="vehicleno" class="text-light">Vehicle Number</label>
+            <input type="text" name="vehicleno" value="<%-user.vehicleno%>">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn text-white update">Save</button>
+          </div>
+        </div>
+      </form>
+      <!--/form handling-->
+
+    </div>
+  </main>
+
+
+  <!--include footer-->
+  <%-include('include/_footer')%>
+    <!--/include footer-->

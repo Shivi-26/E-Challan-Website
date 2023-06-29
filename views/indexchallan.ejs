@@ -1,0 +1,51 @@
+<!--include header-->
+<%-include('include/_header')%>
+  <!--/include header-->
+
+  <!--Main Site-->
+  <main id="site-main">
+    <div class="container">
+      <div class="box-nav d-flex-justify-between">
+        <a href="/challan-user" class="border-shadow">
+          <span class="text-gradient">Add Challan Detail<i class="fa-solid fa-user"></i></span>
+        </a>
+      </div>
+
+      <form action="/indexchallan" method="POST" id="index-challan">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Rule Violated</th>
+              <th> Date Of Violation</th>
+              <th>VehicleNo.</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%-include('include/_showchallan')%>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </main>
+  <!--/Main Site-->
+
+  <!--include footer-->
+  <%-include('include/_footer')%>
+    <!--/include footer-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

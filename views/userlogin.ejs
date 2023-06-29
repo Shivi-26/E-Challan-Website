@@ -1,0 +1,134 @@
+<!--include header-->
+<%-include('include/_header')%>
+<!--/include header-->
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .custom-container {
+        background-color: rgb(11, 11, 77);
+        box-shadow: 9px 9px 8px 7px lightseagreen;
+        border-radius: 5px;
+        padding: 2em;
+        max-width: 17rem;
+        margin-bottom: 2em;
+    }
+
+    h3 {
+        text-align: left;
+        margin-bottom: 30px;
+        color: white;
+    }
+    .shadow {
+        -webkit-border-radius: 60px;
+        border-radius: 60px;
+        border: none;
+        margin-bottom: 1em;
+        margin-top: 0.1em;
+        margin-left: 5rem;
+        color: #eeeeee;
+        cursor: pointer;
+        display: inline-block;
+        font-family: sans-serif;
+        font-size: 20px;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    @keyframes glowing {
+        0% {
+            background-color: linear-gradient(to right, #8d25e7, #e747e7);
+            box-shadow: 0 0 5px #8e2de2;
+        }
+        50% {
+            background-color: linear-gradient(to right, #8e2de2, #e747e7);
+            box-shadow: 0 0 20px #8e2de2;
+        }
+        100% {
+            background-color: linear-gradient(to right, #8e2de2, #e747e7);
+            box-shadow: 0 0 5px #8e2de2;
+        }
+    }
+
+    .shadow {
+        animation: glowing 1300ms infinite;
+    }
+
+    form input {
+            width: 90%;
+            padding: 10px 5px;
+            margin: 5px 0;
+            border: 0;
+            color: white;
+            border-bottom: 1px solid white;
+            outline: none;
+            background: transparent;
+        }
+
+        ::placeholder {
+            color: white;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+</style>
+
+<!--Main Site-->
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-content-between">
+            <a href="/payment-user" class="shadow">
+                <span class="text-gradient">Payment<i class="fa-solid fa-user"></i></span>
+            </a>
+        </div>
+        <div class="justify-content-center">
+            <div class="col-md-6">
+                <div class="custom-container">
+                    <form action="/userlogin" method="GET">
+                        <h3 class="head">USER</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="E-mail id" name="email" required>
+                        </div>
+                        <div class="btn-box">
+                            <button type="submit" id="Submit1">Show</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Rule Violated</th>
+                        <th>Date Of Violation</th>
+                        <th>Vehicle No.</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%- challanusers ? challanusers.name : '' %></td>
+                        <td><%- challanusers ? challanusers.email : '' %></td>
+                        <td><%- challanusers ? challanusers.ruleviolated : '' %></td>
+                        <td><%- challanusers ? challanusers.dateOfviolation : '' %></td>
+                        <td><%- challanusers ? challanusers.vehicleno : '' %></td>
+                        <td><%- challanusers ? challanusers.amount : '' %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<!--/Main Site-->
+
+<!--include footer-->
+<%-include('include/_footer')%>
+<!--/include footer-->

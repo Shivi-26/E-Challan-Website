@@ -1,0 +1,99 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <title>Home Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000; /* Set a background color in case the image is not fully loaded */
+    }
+
+    .fullscreen-image {
+      position: relative;
+      height: 100vh; /* Set the height to the full viewport height */
+    }
+
+    .fullscreen-image img {
+      object-fit: cover; /* Scale and crop the image to cover the entire container */
+      width: 100%;
+      height: 100%;
+      filter: blur(5px); /* Apply the blur effect */
+    }
+
+    .text-block {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 1;
+    }
+
+    .text-block h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-family:Geneva,"Roboto";
+    }
+
+    .text-block p {
+      font-size: 1.5rem;
+      font-family:Geneva,"Roboto";
+    }
+
+    #nb {
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to the navigation bar */
+    }
+
+    #nb ul li {
+      list-style-type: none;
+      display: inline-block;
+      transition: 0.7s all;
+      border-radius: 8px;
+      margin: 0 19px;
+      font-family: Verdana, Geneva, sans-serif, Roboto;
+    }
+
+    #nb ul li:hover {
+      background-color: rgb(117, 142, 255);
+    }
+
+    #nb ul li a {
+      text-decoration: none;
+      color: red;
+      padding: 10px;
+      font-weight: bolder;
+      font-size: 20px;
+      font-family: Verdana, Geneva,Roboto;
+    }
+  </style>
+</head>
+<body>
+  <form action="/" method="POST">
+    <div class="fullscreen-image">
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZJieIPpoSSlPVZc5hdsrjkulLmgo7xpHwPODjQJoujfn5_4lB" alt="Image description">
+      <div class="text-block">
+        <nav id="nb">
+          <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/admin-log">Admin</a></li>
+            <li><a href="/user-log">User</a></li>
+          </ul>
+        </nav>
+        <h1>E-Challan Status</h1>
+        <p>Pay Challan Online (echallan.parivahan.gov.in)</p>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
