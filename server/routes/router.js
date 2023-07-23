@@ -91,15 +91,15 @@ route.post('/user-login',services.userlogin);
 //API,here we create a request
 //route have four http methods post,get,put and delete. and they all take two variables first one we are giving the path and
 // in second one we are specifying caklback function of controller.
-route.post('http://localhost:4000/api/users', controller.create);
-route.get('http://localhost:4000/api/users', controller.find);
-route.put('http://localhost:4000/api/users/:id', controller.update);
-route.delete('http://localhost:4000/api/users/:id', controller.delete);
+route.post('/api/users', controller.create);
+route.get('/api/users', controller.find);
+route.put('/api/users/:id', controller.update);
+route.delete('/api/users/:id', controller.delete);
 
-route.post('http://localhost:4000/api/challanusers', challancontroller.create);
-route.get('http://localhost:4000/api/challanusers', challancontroller.find);
+route.post('/api/challanusers', challancontroller.create);
+route.get('/api/challanusers', challancontroller.find);
 
-route.post('http://localhost:4000/api/challans',paycontroller.create);
-route.get('http://localhost:4000/api/challans',paycontroller.find);
+route.post('/api/challans',paycontroller.create);
+route.get('/api/challans',paycontroller.find);
 
 module.exports = route;
